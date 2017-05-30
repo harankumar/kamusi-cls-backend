@@ -1,9 +1,9 @@
-const isoConv = require('')
+// const isoConv = require('iso-language-converter');
 const express = require('express');
 const app = express();
 
 app.get("/", function (request, response) {
-  response.send(JSON.stringify({"langs":getLangs(request)}));
+  response.send(JSON.stringify({langs: getLangs(request)}));
 });
 
 var listener = app.listen(process.env.PORT, function () {
@@ -21,4 +21,5 @@ function getLangs(request){
 function cldrToISO6933(cldr){
   const iso6931 = cldr.split("-")[0];
   return iso6931;
+  // return isoConv(iso6931, {from: "1", to: "3"});
 }
