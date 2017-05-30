@@ -9,8 +9,6 @@ var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
 
-
-
 function getLangs(request){
   return request.header('Accept-Language')
                 .split(',')
@@ -20,6 +18,6 @@ function getLangs(request){
 }
 
 function cldrToISO6933(cldr){
-  const iso6931
-  
+  const iso6931 = cldr.split("-")[0];
+  return iso6931;
 }
