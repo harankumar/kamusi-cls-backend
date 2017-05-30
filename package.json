@@ -1,32 +1,19 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-  "name": "my-glitch-app",
+  "name": "kamusi-cls-backend",
   "version": "0.0.1",
-  "description": "What am I about?",
+  "description": "Backend for Kamusi CLS",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.15.3",
-    "iso-language-converter": "^1.1.0"
+    "express": "^4.15.3"
   },
   "engines": {
     "node": "6.10.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/welcome-project"
+    "url": "//TODO: CHANGEME"
   },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
-}de",
-    "glitch",
-    "express"
-  ]
+  "license": "MIT"
 }
