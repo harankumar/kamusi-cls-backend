@@ -1,5 +1,5 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 app.get("/", function (request, response) {
   response.send(JSON.stringify({"langs":getLangs(request)}));
@@ -12,7 +12,7 @@ var listener = app.listen(process.env.PORT, function () {
 
 
 function getLangs(request){
-  return request.header('Accept-Language');
+  return request.header('Accept-Language')
                 .split(',')
                 .map(function (clause) {
                     return cldrToISO6933(clause.split(';')[0]);
@@ -20,5 +20,6 @@ function getLangs(request){
 }
 
 function cldrToISO6933(cldr){
-  return cldr;
+  const iso6931
+  
 }
