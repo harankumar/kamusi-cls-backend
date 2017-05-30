@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get("/", function (request, response) {
+  response.set('Access-Control-Allow-Origin', '*');
   response.send(JSON.stringify({langs: getLangs(request)}));
 });
 
