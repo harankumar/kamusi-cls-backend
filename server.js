@@ -1,4 +1,4 @@
-// const isoConv = require('iso-language-converter');
+const isoConv = require('iso-language-converter');
 const express = require('express');
 const app = express();
 
@@ -15,11 +15,29 @@ function getLangs(request){
                 .split(',')
                 .map(function (clause) {
                     return cldrToISO6933(clause.split(';')[0]);
-                });
+                })
+                .removeDuplicates();
 }
 
 function cldrToISO6933(cldr){
   const iso6931 = cldr.split("-")[0];
-  return iso6931;
-  // return isoConv(iso6931, {from: "1", to: "3"});
+  return isoConv(iso6931, {from: 1, to: 3});
+}
+
+Array.prototype.removeDuplicates = function(){
+  let i = 0;
+  while (i < this.length){
+    let indOf = i + 1;
+    while (i < this.length){
+      if (this[i] === this[indOf])
+        break;
+      i++;
+    }
+    
+    if (indOf === this.length)
+      i++;
+    else
+      this.splice(indOf, 1);
+  }
+  return this;
 }
