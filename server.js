@@ -85,6 +85,7 @@ app.get("/", function (request, response) {
   response.set('Access-Control-Allow-Origin', '*');
   response.send(getLangs(request).map(function(x){
     console.log(x)
-    return {"name": codestonames[x].toProperCase(), "code": x}
+    console.log(codestonames[x])
+    return {"name": codestonames[x].map((x) => x.toProperCase()), "code": x}
   }));
 });
