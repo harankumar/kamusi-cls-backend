@@ -49,11 +49,18 @@ Array.prototype.removeDuplicates = function(){
 
 let userlangs = null
 let userlangtrie = null
+let namestocodes = null
 fs.readFile("userlangs.json", function(err, data){
   if (err)
     throw err
   
   userlangs = JSON.parse(data)
+})
+fs.readFile("namestocodes.json", function(err, data){
+  if (err)
+    throw err
+  
+  namestocodes = JSON.parse(data)
 })
 fs.readFile("userlangnames.json", function(err, data){
   if (err)
@@ -63,5 +70,8 @@ fs.readFile("userlangnames.json", function(err, data){
 })
 
 app.get("/:prefix", function(req, res){
-  res.send(userlangtrie.getPrefix(req.params["prefix"]).ma)
+  res.send(userlangtrie.getPrefix(req.params["prefix"]).map(function(x){
+  console.log(namestocodes[""])
+    return {"name": x, "code": namestocodes[x]}
+  }))
 })
