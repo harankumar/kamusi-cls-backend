@@ -63,5 +63,5 @@ fs.readFile("userlangnames.json", function(err, data){
 })
 
 app.get("/:prefix", function(req, res){
-  
+  res.send(userlangtrie.getPrefix(req.params["prefix"]).ma)
 })
