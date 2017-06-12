@@ -80,7 +80,7 @@ String.prototype.toProperCase = function () {
 app.get("/:prefix", function(req, res){
   res.send(userlangtrie.getPrefix(req.params["prefix"]).map(function(x){
     return {"name": x.toProperCase(), "code": namestocodes[x]}
-  }))
+  }).slice(0, 10))
 })
 
 app.get("/", function (request, response) {
