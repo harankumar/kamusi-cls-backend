@@ -6,11 +6,6 @@ const trie = require('trie-prefix-tree');
 
 const app = express();
 
-app.get("/", function (request, response) {
-  response.set('Access-Control-Allow-Origin', '*');
-  response.send(JSON.stringify({langs: getLangs(request)}));
-});
-
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
@@ -50,6 +45,7 @@ Array.prototype.removeDuplicates = function(){
 let userlangs = null
 let userlangtrie = null
 let namestocodes = null
+let codestonames = null
 fs.readFile("userlangs.json", function(err, data){
   if (err)
     throw err
@@ -62,6 +58,12 @@ fs.readFile("namestocodes.json", function(err, data){
   
   namestocodes = JSON.parse(data)
 })
+fs.readFile("namestocodes.json", function(err, data){
+  if (err)
+    throw err
+  
+  codestonames = JSON.parse(data)
+})
 fs.readFile("userlangnames.json", function(err, data){
   if (err)
     throw err
@@ -69,9 +71,20 @@ fs.readFile("userlangnames.json", function(err, data){
   userlangtrie = trie(JSON.parse(data))
 })
 
+String.prototype.toProperCase = function () {
+    return this.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
+
 app.get("/:prefix", function(req, res){
   res.send(userlangtrie.getPrefix(req.params["prefix"]).map(function(x){
-  console.log(namestocodes[""])
-    return {"name": x, "code": namestocodes[x]}
+    return {"name": x.toProperCase(), "code": namestocodes[x]}
   }))
 })
+
+app.get("/", function (request, response) {
+  response.set('Access-Control-Allow-Origin', '*');
+  response.send(getLangs(request).map(function(x){
+    console.log(x)
+    return {"name": codestonames[x].toProperCase(), "code": x}
+  }));
+});
