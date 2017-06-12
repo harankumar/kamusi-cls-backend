@@ -1,6 +1,8 @@
 const isoConv = require('iso-language-converter');
 const express = require('express');
 const fs = require('fs')
+const trie = require('trie-prefix-tree');
+
 
 const app = express();
 
@@ -52,7 +54,14 @@ fs.readFile("userlangs.json", function(err, data){
     throw err
   
   userlangs = JSON.parse(data)
-  userlangs
+})
+fs.readFile("userlangnames.json", function(err, data){
+  if (err)
+    throw err
+  
+  userlangtrie = trie(JSON.parse(data))
 })
 
-app.get("/:prefix")
+app.get("/:prefix", function(req, res){
+  
+})
