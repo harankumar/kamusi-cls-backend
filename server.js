@@ -1,3 +1,5 @@
+"use strict"
+
 const isoConv = require('iso-language-converter');
 const express = require('express');
 const fs = require('fs')
@@ -58,7 +60,7 @@ fs.readFile("namestocodes.json", function(err, data){
   
   namestocodes = JSON.parse(data)
 })
-fs.readFile("namestocodes.json", function(err, data){
+fs.readFile("codestonames.json", function(err, data){
   if (err)
     throw err
   
@@ -84,8 +86,6 @@ app.get("/:prefix", function(req, res){
 app.get("/", function (request, response) {
   response.set('Access-Control-Allow-Origin', '*');
   response.send(getLangs(request).map(function(x){
-    console.log(x)
-    console.log(codestonames[x])
     return {"name": codestonames[x].map((x) => x.toProperCase()), "code": x}
   }));
 });
