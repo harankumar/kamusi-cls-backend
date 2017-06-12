@@ -1,5 +1,7 @@
 const isoConv = require('iso-language-converter');
 const express = require('express');
+const fs = require('fs')
+
 const app = express();
 
 app.get("/", function (request, response) {
@@ -43,3 +45,14 @@ Array.prototype.removeDuplicates = function(){
   return this;
 }
 
+let userlangs = null
+let userlangtrie = null
+fs.readFile("userlangs.json", function(err, data){
+  if (err)
+    throw err
+  
+  userlangs = JSON.parse(data)
+  userlangs
+})
+
+app.get("/:prefix")
