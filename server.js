@@ -27,21 +27,7 @@ function cldrToISO6933(cldr){
 }
 
 Array.prototype.removeDuplicates = function(){
-  let i = 0;
-  while (i < this.length){
-    let indOf = i + 1;
-    while (i < this.length){
-      if (this[i] === this[indOf])
-        break;
-      i++;
-    }
-    
-    if (indOf === this.length)
-      i++;
-    else
-      this.splice(indOf, 1);
-  }
-  return this;
+  return Array.from(new Set(this))
 }
 
 let userlangs = null
