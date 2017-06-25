@@ -77,8 +77,9 @@ String.prototype.toProperCase = function () {
     return this.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
 
-app.get("/:prefix", function(req, res){
-  res.send(userlangtrie.getPrefix(req.params["prefix"]).map(function(x){
+app.get("/:prefix", function(request, response){
+  response.set('Access-Control-Allow-Origin', '*');
+  response.send(userlangtrie.getPrefix(request.params["prefix"]).map(function(x){
     return {"name": x.toProperCase(), "code": namestocodes[x]}
   }).slice(0, 10))
 })
@@ -89,3 +90,4 @@ app.get("/", function (request, response) {
     return {"name": codestonames[x].map((x) => x.toProperCase()), "code": x}
   }));
 });
+
