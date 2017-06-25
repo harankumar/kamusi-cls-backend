@@ -1,29 +1,29 @@
 "use strict"
 
-const isoConv = require('iso-language-converter');
-const express = require('express');
+const isoConv = require('iso-language-converter')
+const express = require('express')
 const fs = require('fs')
-const trie = require('trie-prefix-tree');
+const trie = require('trie-prefix-tree')
 
 
-const app = express();
+const app = express()
 
 var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+  console.log('Your app is listening on port ' + listener.address().port)
+})
 
 function getLangs(request){
   return request.header('Accept-Language')
                 .split(',')
                 .map(function (clause) {
-                    return cldrToISO6933(clause.split(';')[0]);
+                    return cldrToISO6933(clause.split(';')[0])
                 })
-                .removeDuplicates();
+                .removeDuplicates()
 }
 
 function cldrToISO6933(cldr){
-  const iso6931 = cldr.split("-")[0];
-  return isoConv(iso6931, {from: 1, to: 3});
+  const iso6931 = cldr.split("-")[0]
+  return isoConv(iso6931, {from: 1, to: 3})
 }
 
 Array.prototype.removeDuplicates = function(){
@@ -60,20 +60,31 @@ fs.readFile("userlangnames.json", function(err, data){
 })
 
 String.prototype.toProperCase = function () {
-    return this.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-};
+    return this.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()})
+}
 
-app.get("/:prefix", function(request, response){
-  response.set('Access-Control-Allow-Origin', '*');
+app.get("/userlangs/:prefix", function(request, response){
+  response.set('Access-Control-Allow-Origin', '*')
   response.send(userlangtrie.getPrefix(request.params["prefix"]).map(function(x){
     return {"name": x.toProperCase(), "code": namestocodes[x]}
   }).slice(0, 10))
 })
 
-app.get("/", function (request, response) {
-  response.set('Access-Control-Allow-Origin', '*');
+app.get("/langnames/:code", function(request, response){
+  response.set('Access-Control-Allow-Origin', '*')
+  // fs.readFile("langnames/afr.json", {encoding: "utf8"}, function(err, data){
+  fs.readFile("langnames/" + request.params["code"] + ".json", function(err, data){
+    if (err)
+      throw err
+    
+    response.send(JSON.stringify(JSON.parse(data), null, 2))
+  })
+})
+
+app.get("/userlangs", function (request, response) {
+  response.set('Access-Control-Allow-Origin', '*')
   response.send(getLangs(request).map(function(x){
     return {"name": codestonames[x].map((x) => x.toProperCase()), "code": x}
-  }));
-});
+  }))
+})
 
