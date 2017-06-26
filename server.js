@@ -88,7 +88,6 @@ app.get("/userlangs/:prefix", function(request, response){
 
 app.get("/langnames/:code", function(request, response){
   response.set('Access-Control-Allow-Origin', '*')
-  // fs.readFile("langnames/afr.json", {encoding: "utf8"}, function(err, data){
   fs.readFile("langnames/" + request.params["code"] + ".json", function(err, data){
     if (err)
       response.send(JSON.stringify([{}], null, 2))
@@ -96,6 +95,19 @@ app.get("/langnames/:code", function(request, response){
       let langdata = JSON.parse(data)
       
       response.send(JSON.stringify(Object.keys(langdata).map(function(x){return {id: x, text: langdata[x].toProperCase()}}), null, 2))
+    }
+  })
+})
+
+app.get("/territories/:code", function(request, response){
+  response.set('Access-Control-Allow-Origin', '*')
+  fs.readFile("territories/" + request.params["code"] + ".json", function(err, data){
+    if (err)
+      response.send(JSON.stringify([{}], null, 2))
+    else {
+      let terrdata = JSON.parse(data)
+      
+      response.send(JSON.stringify(Object.keys(terrdata).map(function(x){return {id: x, text: terrdata[x].toProperCase()}}), null, 2))
     }
   })
 })
