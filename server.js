@@ -7,6 +7,7 @@ const express = require('express')
 const fs = require('fs')
 const trie = require('trie-prefix-tree')
 const arrayUnion = require('array-union')
+const geoip = require('geoip-lite')
 
 
 const app = express()
@@ -105,9 +106,12 @@ app.get("/territories/:code", function(request, response){
     if (err)
       response.send(JSON.stringify([{}], null, 2))
     else {
-      let terrdata = JSON.parse(data)
+      const rawdata = JSON.parse(data)
+      const loc = geoip.lookup(request.headers['x-forwarded-for'] || request.connection.remoteAddress)
+      const terrdata = arrayUnion((loc.country && rawdata[loc.country]) ? [{id: loc.country, text: rawdata[loc.country]}] : [], 
+                                  Object.keys(rawdata).sort().filter((x) => x!==loc.country).map(function(x){return {id: x, text: rawdata[x].toProperCase()}}))
       
-      response.send(JSON.stringify(Object.keys(terrdata).map(function(x){return {id: x, text: terrdata[x].toProperCase()}}), null, 2))
+      response.send(JSON.stringify(terrdata, null, 2))
     }
   })
 })
