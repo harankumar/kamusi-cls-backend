@@ -6,6 +6,7 @@ const isoConv = require('iso-language-converter')
 const express = require('express')
 const fs = require('fs')
 const trie = require('trie-prefix-tree')
+const arrayUnion = require('array-union')
 
 
 const app = express()
@@ -15,21 +16,16 @@ var listener = app.listen(process.env.PORT, function () {
 })
 
 function getLangs(request){
-  return request.header('Accept-Language')
-                .split(',')
-                .map(function (clause) {
-                    return cldrToISO6933(clause.split(';')[0])
-                })
-                .removeDuplicates()
+  return arrayUnion(request.header('Accept-Language')
+                    .split(',')
+                    .map(function (clause) {
+                        return cldrToISO6933(clause.split(';')[0])
+                    }))
 }
 
 function cldrToISO6933(cldr){
   const iso6931 = cldr.split("-")[0]
   return isoConv(iso6931, {from: 1, to: 3})
-}
-
-Array.prototype.removeDuplicates = function(){
-  return Array.from(new Set(this))
 }
 
 let userlangs = null
@@ -72,12 +68,22 @@ app.get("/userlangs/:prefix", function(request, response){
   
   var data = userlangtrie.getPrefix(prefix).map(function(x){
     return {"text": x.toProperCase(), "id": namestocodes[x]}
-  }).slice(0, 10)
+  })
   
-  if (prefix.length === 3 && codestonames[prefix])
-    data = codestonames[prefix].map(function(x){return {id: prefix, text:x}}).concat(data)
-
-  response.send(JSON.stringify(data, null, 2))
+  if (prefix.length === 3 && codestonames[prefix]){
+    // This is super hacky, sorry!
+    let tempData = codestonames[prefix].map(function(x){return {text:x, id: prefix}})
+    let existingData = new Set(data.map((x) => x.text))
+    for (let d of tempData){
+      if (existingData.has(d.text)){
+        data.splice(data.indexOf(data.filter((x) => x.text === d.text)[0]),1)
+        
+      }
+    }
+    data = arrayUnion(tempData, data)
+  }
+  
+  response.send(JSON.stringify(data.slice(0, 10), null, 2))
 })
 
 app.get("/langnames/:code", function(request, response){
@@ -100,4 +106,3 @@ app.get("/userlangs", function (request, response) {
     return {text: codestonames[x].map((x) => x.toProperCase()), id: x}
   }))
 })
-
