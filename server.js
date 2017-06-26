@@ -67,9 +67,17 @@ String.prototype.toProperCase = function () {
 
 app.get("/userlangs/:prefix", function(request, response){
   response.set('Access-Control-Allow-Origin', '*')
-  response.send(userlangtrie.getPrefix(request.params["prefix"]).map(function(x){
+  
+  var prefix = request.params.prefix
+  
+  var data = userlangtrie.getPrefix(prefix).map(function(x){
     return {"text": x.toProperCase(), "id": namestocodes[x]}
-  }).slice(0, 10))
+  }).slice(0, 10)
+  
+  if (prefix.length === 3 && codestonames[prefix])
+    data = [codestonames[prefix].map(function(x){return {id: prefix, text:x}})].concat(data)
+
+  response.send(JSON.stringify(data, null, 2))
 })
 
 app.get("/langnames/:code", function(request, response){
