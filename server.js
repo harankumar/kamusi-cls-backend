@@ -86,7 +86,7 @@ app.get("/langnames/:code", function(request, response){
 app.get("/userlangs", function (request, response) {
   response.set('Access-Control-Allow-Origin', '*')
   response.send(getLangs(request).map(function(x){
-    return {"name": codestonames[x].map((x) => x.toProperCase()), "code": x}
+    return {text: codestonames[x].map((x) => x.toProperCase()), id: x}
   }))
 })
 
