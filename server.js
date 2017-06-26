@@ -77,11 +77,12 @@ app.get("/langnames/:code", function(request, response){
   // fs.readFile("langnames/afr.json", {encoding: "utf8"}, function(err, data){
   fs.readFile("langnames/" + request.params["code"] + ".json", function(err, data){
     if (err)
-      throw err
-    
-    let langdata = JSON.parse(data)
-    
-    response.send(JSON.stringify(Object.keys(langdata).map(function(x){return {id: x, text: langdata[x].toProperCase()}}), null, 2))
+      response.send(JSON.stringify([{}], null, 2))
+    else {
+      let langdata = JSON.parse(data)
+      
+      response.send(JSON.stringify(Object.keys(langdata).map(function(x){return {id: x, text: langdata[x].toProperCase()}}), null, 2))
+    }
   })
 })
 
