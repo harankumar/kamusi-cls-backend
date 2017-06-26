@@ -1,5 +1,7 @@
 "use strict"
 
+// TODO: handle errors better
+
 const isoConv = require('iso-language-converter')
 const express = require('express')
 const fs = require('fs')
@@ -79,7 +81,7 @@ app.get("/langnames/:code", function(request, response){
     
     let langdata = JSON.parse(data)
     
-    response.send(JSON.stringify(Object.keys(langdata).map(function(x){return {id: x, text: langdata[x]}}), null, 2))
+    response.send(JSON.stringify(Object.keys(langdata).map(function(x){return {id: x, text: langdata[x].toProperCase()}}), null, 2))
   })
 })
 
