@@ -75,7 +75,7 @@ app.get("/userlangs/:prefix", function(request, response){
   }).slice(0, 10)
   
   if (prefix.length === 3 && codestonames[prefix])
-    data = [codestonames[prefix].map(function(x){return {id: prefix, text:x}})].concat(data)
+    data = codestonames[prefix].map(function(x){return {id: prefix, text:x}}).concat(data)
 
   response.send(JSON.stringify(data, null, 2))
 })
