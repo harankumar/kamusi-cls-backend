@@ -1,4 +1,11 @@
 {
+  "AU": "Awstraliýa",
+  "GB": "Britaniýa",
+  "DE": "Germaniýa",
+  "RU": "Orusýet",
+  "UA": "Ukraina",
+  "IT": "Italiýa",
+  "US": "A.B.Ş.",
   "AZ": "Azerbaýjan",
   "IL": "Ysraýyl",
   "TR": "Türkiýe",
@@ -8,12 +15,5 @@
   "JP": "Ýaponiýa",
   "IN": "Hindistan",
   "IR": "Eýran",
-  "PK": "Pakistan",
-  "US": "A.B.Ş.",
-  "GB": "Britaniýa",
-  "DE": "Germaniýa",
-  "RU": "Orusýet",
-  "UA": "Ukraina",
-  "IT": "Italiýa",
-  "AU": "Awstraliýa"
+  "PK": "Pakistan"
 }

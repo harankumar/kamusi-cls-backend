@@ -17273,5 +17273,147 @@
     "Dzongkha",
     "不丹语 宗喀语",
     "Дзонг-кэ"
-  ]
+  ],
+  "vai_Latn": [],
+  "srp_Latn": [],
+  "shi_Latn": [],
+  "yor_BJ": [],
+  "bos_Cyrl": [],
+  "uzb_Cyrl": [],
+  "aze_Cyrl": [],
+  "fas_AF": [
+    "دری",
+    "dari"
+  ],
+  "zho_Hant": [
+    "繁體中文",
+    "繁体中文",
+    "китайский, традиционное письмо",
+    "traditional chinese",
+    "chinois traditionnel",
+    "chino tradicional",
+    "chinesisch (traditionell)"
+  ],
+  "zho_Hant_HK": [],
+  "fra_CA": [
+    "français canadien",
+    "канадский французский",
+    "canadian french",
+    "francés canadiense",
+    "kanadisches französisch"
+  ],
+  "por_PT": [
+    "português europeu",
+    "европейский португальский",
+    "european portuguese",
+    "portugais européen",
+    "portugués de portugal",
+    "欧洲葡萄牙文",
+    "europäisches portugiesisch"
+  ],
+  "urd_IN": [],
+  "swa_KE": [],
+  "ara_LY": [],
+  "ara_SA": [],
+  "rus_UA": [],
+  "deu_CH": [
+    "schweizer hochdeutsch",
+    "литературный швейцарский немецкий",
+    "swiss high german",
+    "allemand suisse",
+    "alto alemán suizo",
+    "瑞士高地德文"
+  ],
+  "swa_CD": [
+    "kingwana",
+    "конголезский суахили",
+    "congo swahili",
+    "swahili du congo",
+    "suajili del congo",
+    "刚果斯瓦希里文",
+    "kongo-swahili"
+  ],
+  "fra_BE": [],
+  "spa_AR": [],
+  "spa_BO": [],
+  "spa_CL": [],
+  "spa_CO": [],
+  "spa_CR": [],
+  "spa_DO": [],
+  "spa_EC": [],
+  "spa_GT": [],
+  "spa_HN": [],
+  "spa_NI": [],
+  "spa_PA": [],
+  "spa_PE": [],
+  "spa_PR": [],
+  "spa_PY": [],
+  "spa_SV": [],
+  "spa_US": [],
+  "spa_VE": [],
+  "spa_419": [
+    "español latinoamericano",
+    "латиноамериканский испанский",
+    "latin american spanish",
+    "拉丁美洲西班牙文",
+    "lateinamerikanisches spanisch"
+  ],
+  "spa_MX": [
+    "español de méxico",
+    "мексиканский испанский",
+    "mexican spanish",
+    "墨西哥西班牙文",
+    "mexikanisches spanisch"
+  ],
+  "srp_Latn_BA": [],
+  "srp_Latn_ME": [],
+  "srp_Latn_XK": [],
+  "srp_Cyrl_BA": [],
+  "srp_Cyrl": [],
+  "srp_Cyrl_ME": [],
+  "srp_Cyrl_XK": [],
+  "ben_IN": [],
+  "kor_KP": [],
+  "uzb_Arab": [],
+  "pan_Arab": [],
+  "sme_FI": [],
+  "ron_MD": [
+    "moldovenească",
+    "молдавский",
+    "moldavian",
+    "moldave",
+    "moldavo",
+    "摩尔多瓦文",
+    "moldauisch"
+  ],
+  "ara_AE": [],
+  "deu_AT": [
+    "österreichisches deutsch",
+    "австрийский немецкий",
+    "austrian german",
+    "allemand autrichien",
+    "alemán austríaco",
+    "奥地利德文"
+  ],
+  "cat_ES_VALENCIA": [],
+  "cat_ES": [],
+  "eng_AU": [
+    "australian english",
+    "австралийский английский",
+    "anglais australien",
+    "inglés australiano",
+    "australisches englisch"
+  ],
+  "fra_CH": [
+    "français suisse",
+    "швейцарский французский",
+    "swiss french",
+    "francés suizo",
+    "schweizer französisch"
+  ],
+  "eng_IN": [],
+  "deu_LU": [],
+  "ara_EG": [],
+  "swe_FI": [],
+  "eng_NZ": []
 }

@@ -1,11 +1,7 @@
 {
   "BR": "Brasilän",
-  "GE": "Grusiyän",
-  "CN": "Tsyinän",
-  "JP": "Yapän",
-  "IN": "Lindän",
-  "US": "Lamerikän",
-  "MX": "Mäxikän",
+  "NR": "Naureän",
+  "PW": "Palauäns",
   "GB": "Regän Pebalöl",
   "DE": "Deutän",
   "FR": "Fransän",
@@ -14,6 +10,10 @@
   "GR": "Grikän",
   "IT": "Litaliyän",
   "PT": "Portugän",
-  "NR": "Naureän",
-  "PW": "Palauäns"
+  "US": "Lamerikän",
+  "MX": "Mäxikän",
+  "GE": "Grusiyän",
+  "CN": "Tsyinän",
+  "JP": "Yapän",
+  "IN": "Lindän"
 }

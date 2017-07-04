@@ -49813,7 +49813,7 @@
   },
   {
     "code": "zpa",
-    "name": "Лачигирийский сапотекский"
+    "name": "Л��чигирийский сапотекский"
   },
   {
     "code": "zpb",
@@ -50574,5 +50574,273 @@
   {
     "code": "zzj",
     "name": "Цзоцзянский чжуанский"
+  },
+  {
+    "code": "fas_AF",
+    "name": "دری"
+  },
+  {
+    "code": "fas_AF",
+    "name": "dari"
+  },
+  {
+    "code": "zho_Hant",
+    "name": "繁體中文"
+  },
+  {
+    "code": "zho_Hant",
+    "name": "繁体中文"
+  },
+  {
+    "code": "zho_Hant",
+    "name": "китайский, традиционное письмо"
+  },
+  {
+    "code": "zho_Hant",
+    "name": "traditional chinese"
+  },
+  {
+    "code": "zho_Hant",
+    "name": "chinois traditionnel"
+  },
+  {
+    "code": "zho_Hant",
+    "name": "chino tradicional"
+  },
+  {
+    "code": "zho_Hant",
+    "name": "chinesisch (traditionell)"
+  },
+  {
+    "code": "fra_CA",
+    "name": "français canadien"
+  },
+  {
+    "code": "fra_CA",
+    "name": "канадский французский"
+  },
+  {
+    "code": "fra_CA",
+    "name": "canadian french"
+  },
+  {
+    "code": "fra_CA",
+    "name": "francés canadiense"
+  },
+  {
+    "code": "fra_CA",
+    "name": "kanadisches französisch"
+  },
+  {
+    "code": "por_PT",
+    "name": "português europeu"
+  },
+  {
+    "code": "por_PT",
+    "name": "европейский португальский"
+  },
+  {
+    "code": "por_PT",
+    "name": "european portuguese"
+  },
+  {
+    "code": "por_PT",
+    "name": "portugais européen"
+  },
+  {
+    "code": "por_PT",
+    "name": "portugués de portugal"
+  },
+  {
+    "code": "por_PT",
+    "name": "欧洲葡萄牙文"
+  },
+  {
+    "code": "por_PT",
+    "name": "europäisches portugiesisch"
+  },
+  {
+    "code": "deu_CH",
+    "name": "schweizer hochdeutsch"
+  },
+  {
+    "code": "deu_CH",
+    "name": "литературный швейцарский немецкий"
+  },
+  {
+    "code": "deu_CH",
+    "name": "swiss high german"
+  },
+  {
+    "code": "deu_CH",
+    "name": "allemand suisse"
+  },
+  {
+    "code": "deu_CH",
+    "name": "alto alemán suizo"
+  },
+  {
+    "code": "deu_CH",
+    "name": "瑞士高地德文"
+  },
+  {
+    "code": "swa_CD",
+    "name": "kingwana"
+  },
+  {
+    "code": "swa_CD",
+    "name": "конголезский суахили"
+  },
+  {
+    "code": "swa_CD",
+    "name": "congo swahili"
+  },
+  {
+    "code": "swa_CD",
+    "name": "swahili du congo"
+  },
+  {
+    "code": "swa_CD",
+    "name": "suajili del congo"
+  },
+  {
+    "code": "swa_CD",
+    "name": "刚果斯瓦希里文"
+  },
+  {
+    "code": "swa_CD",
+    "name": "kongo-swahili"
+  },
+  {
+    "code": "spa_419",
+    "name": "español latinoamericano"
+  },
+  {
+    "code": "spa_419",
+    "name": "латиноамериканский испанский"
+  },
+  {
+    "code": "spa_419",
+    "name": "latin american spanish"
+  },
+  {
+    "code": "spa_419",
+    "name": "拉丁美洲西班牙文"
+  },
+  {
+    "code": "spa_419",
+    "name": "lateinamerikanisches spanisch"
+  },
+  {
+    "code": "spa_MX",
+    "name": "español de méxico"
+  },
+  {
+    "code": "spa_MX",
+    "name": "мексиканский испанский"
+  },
+  {
+    "code": "spa_MX",
+    "name": "mexican spanish"
+  },
+  {
+    "code": "spa_MX",
+    "name": "墨西哥西班牙文"
+  },
+  {
+    "code": "spa_MX",
+    "name": "mexikanisches spanisch"
+  },
+  {
+    "code": "ron_MD",
+    "name": "moldovenească"
+  },
+  {
+    "code": "ron_MD",
+    "name": "молдавский"
+  },
+  {
+    "code": "ron_MD",
+    "name": "moldavian"
+  },
+  {
+    "code": "ron_MD",
+    "name": "moldave"
+  },
+  {
+    "code": "ron_MD",
+    "name": "moldavo"
+  },
+  {
+    "code": "ron_MD",
+    "name": "摩尔多瓦文"
+  },
+  {
+    "code": "ron_MD",
+    "name": "moldauisch"
+  },
+  {
+    "code": "deu_AT",
+    "name": "österreichisches deutsch"
+  },
+  {
+    "code": "deu_AT",
+    "name": "австрийский немецкий"
+  },
+  {
+    "code": "deu_AT",
+    "name": "austrian german"
+  },
+  {
+    "code": "deu_AT",
+    "name": "allemand autrichien"
+  },
+  {
+    "code": "deu_AT",
+    "name": "alemán austríaco"
+  },
+  {
+    "code": "deu_AT",
+    "name": "奥地利德文"
+  },
+  {
+    "code": "eng_AU",
+    "name": "australian english"
+  },
+  {
+    "code": "eng_AU",
+    "name": "австралийский английский"
+  },
+  {
+    "code": "eng_AU",
+    "name": "anglais australien"
+  },
+  {
+    "code": "eng_AU",
+    "name": "inglés australiano"
+  },
+  {
+    "code": "eng_AU",
+    "name": "australisches englisch"
+  },
+  {
+    "code": "fra_CH",
+    "name": "français suisse"
+  },
+  {
+    "code": "fra_CH",
+    "name": "швейцарский французский"
+  },
+  {
+    "code": "fra_CH",
+    "name": "swiss french"
+  },
+  {
+    "code": "fra_CH",
+    "name": "francés suizo"
+  },
+  {
+    "code": "fra_CH",
+    "name": "schweizer französisch"
   }
 ]

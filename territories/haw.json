@@ -1,12 +1,6 @@
 {
-  "IL": "ʻIseraʻela",
-  "CN": "Kina",
-  "JP": "Iāpana",
-  "IN": "ʻĪnia",
-  "PH": "ʻĀina Pilipino",
-  "CA": "Kanakā",
-  "US": "ʻAmelika Hui Pū ʻIa",
-  "MX": "Mekiko",
+  "AU": "Nūhōlani",
+  "NZ": "Aotearoa",
   "DK": "Kenemaka",
   "GB": "Aupuni Mōʻī Hui Pū ʻIa",
   "IE": "ʻIlelani",
@@ -17,6 +11,12 @@
   "ES": "Kepania",
   "GR": "Helene",
   "IT": "ʻĪkālia",
-  "AU": "Nūhōlani",
-  "NZ": "Aotearoa"
+  "CA": "Kanakā",
+  "US": "ʻAmelika Hui Pū ʻIa",
+  "MX": "Mekiko",
+  "IL": "ʻIseraʻela",
+  "CN": "Kina",
+  "JP": "Iāpana",
+  "IN": "ʻĪnia",
+  "PH": "ʻĀina Pilipino"
 }

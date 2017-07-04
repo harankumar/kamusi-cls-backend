@@ -1,12 +1,12 @@
 {
   "BR": "Brasil",
-  "CN": "China",
-  "JP": "Japan",
-  "IN": "Eynda",
-  "US": "Statys Unys",
   "GB": "Rywvaneth Unys",
   "DE": "Almayn",
   "FR": "Pow Frenk",
   "RU": "Russi",
-  "IT": "Itali"
+  "IT": "Itali",
+  "US": "Statys Unys",
+  "CN": "China",
+  "JP": "Japan",
+  "IN": "Eynda"
 }
