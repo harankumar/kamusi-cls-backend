@@ -75,7 +75,7 @@ app.get("/userlangs/:prefix", function(request, response){
     return {"text": x.toProperCase(), "id": namestocodes[x]}
   })
   
-  if (prefix.length === 3 && codestonames[prefix]){
+  if (codestonames[prefix] && codestonames[prefix].length > 0){
     let tempData = (typeof codestonames[prefix] === "string") ?
                       [{text: codestonames[prefix], id: prefix}] :
                       codestonames[prefix].map(function(x){return {text:x, id: prefix}})
