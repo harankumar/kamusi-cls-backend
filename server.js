@@ -76,8 +76,11 @@ app.get("/userlangs/:prefix", function(request, response){
   })
   
   if (prefix.length === 3 && codestonames[prefix]){
+    let tempData = (typeof codestonames[prefix] === "string") ?
+                      [{text: codestonames[prefix], id: prefix}] :
+                      codestonames[prefix].map(function(x){return {text:x, id: prefix}})
+    
     // This is super hacky, sorry!
-    let tempData = codestonames[prefix].map(function(x){return {text:x, id: prefix}})
     let existingData = new Set(data.map((x) => x.text))
     for (let d of tempData){
       if (existingData.has(d.text)){
