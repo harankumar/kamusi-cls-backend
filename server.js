@@ -29,6 +29,7 @@ function cldrToISO6933(cldr){
   return isoConv(iso6931, {from: 1, to: 3})
 }
 
+let langpop = JSON.parse(fs.readFileSync("langpop.json"))
 let userlangs = JSON.parse(fs.readFileSync("userlangs.json"))
 let userlangtrie = trie(JSON.parse(fs.readFileSync("userlangnames.json")))
 let namestocodes = JSON.parse(fs.readFileSync("namestocodes.json"))
@@ -66,6 +67,8 @@ app.get("/userlangs/:prefix", function(request, response){
     }
     data = arrayUnion(tempData, data)
   }
+
+  data.sort((a, b) => langpop[b.id] - langpop[a.id])
 
   response.send(JSON.stringify(data.slice(0, 10), null, 2))
 })
