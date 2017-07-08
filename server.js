@@ -29,34 +29,10 @@ function cldrToISO6933(cldr){
   return isoConv(iso6931, {from: 1, to: 3})
 }
 
-let userlangs = null
-let userlangtrie = null
-let namestocodes = null
-let codestonames = null
-fs.readFile("userlangs.json", function(err, data){
-  if (err)
-    throw err
-  
-  userlangs = JSON.parse(data)
-})
-fs.readFile("namestocodes.json", function(err, data){
-  if (err)
-    throw err
-  
-  namestocodes = JSON.parse(data)
-})
-fs.readFile("codestonames.json", function(err, data){
-  if (err)
-    throw err
-  
-  codestonames = JSON.parse(data)
-})
-fs.readFile("userlangnames.json", function(err, data){
-  if (err)
-    throw err
-  
-  userlangtrie = trie(JSON.parse(data))
-})
+let userlangs = JSON.parse(fs.readFileSync("userlangs.json"))
+let userlangtrie = trie(JSON.parse(fs.readFileSync("userlangnames.json")))
+let namestocodes = JSON.parse(fs.readFileSync("namestocodes.json"))
+let codestonames = JSON.parse(fs.readFileSync("codestonames.json"))
 
 String.prototype.toProperCase = function () {
     return this.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()})
@@ -68,29 +44,29 @@ Array.prototype.toProperCase = function (){
 
 app.get("/userlangs/:prefix", function(request, response){
   response.set('Access-Control-Allow-Origin', '*')
-  
+
   var prefix = request.params.prefix
-  
+
   var data = userlangtrie.getPrefix(prefix).map(function(x){
     return {"text": x.toProperCase(), "id": namestocodes[x]}
   })
-  
+
   if (codestonames[prefix] && codestonames[prefix].length > 0){
     let tempData = (typeof codestonames[prefix] === "string") ?
                       [{text: codestonames[prefix], id: prefix}] :
                       codestonames[prefix].map(function(x){return {text:x, id: prefix}})
-    
+
     // This is super hacky, sorry!
     let existingData = new Set(data.map((x) => x.text))
     for (let d of tempData){
       if (existingData.has(d.text)){
         data.splice(data.indexOf(data.filter((x) => x.text === d.text)[0]),1)
-        
+
       }
     }
     data = arrayUnion(tempData, data)
   }
-  
+
   response.send(JSON.stringify(data.slice(0, 10), null, 2))
 })
 
@@ -101,7 +77,7 @@ app.get("/langnames/:code", function(request, response){
       response.send(JSON.stringify([{}], null, 2))
     else {
       let langdata = JSON.parse(data)
-      
+
       response.send(JSON.stringify(Object.keys(langdata).map(function(x){return {id: x, text: langdata[x].toProperCase()}}), null, 2))
     }
   })
@@ -115,9 +91,9 @@ app.get("/territories/:code", function(request, response){
     else {
       const rawdata = JSON.parse(data)
       const loc = geoip.lookup(request.headers['x-forwarded-for'] || request.connection.remoteAddress)
-      const terrdata = arrayUnion((loc.country && rawdata[loc.country]) ? [{id: loc.country, text: rawdata[loc.country]}] : [], 
+      const terrdata = arrayUnion((loc.country && rawdata[loc.country]) ? [{id: loc.country, text: rawdata[loc.country]}] : [],
                                   Object.keys(rawdata).sort().filter((x) => x!==loc.country).map(function(x){return {id: x, text: rawdata[x].toProperCase()}}))
-      
+
       response.send(JSON.stringify(terrdata, null, 2))
     }
   })
