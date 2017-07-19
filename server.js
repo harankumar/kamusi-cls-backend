@@ -34,6 +34,7 @@ let userlangs = JSON.parse(fs.readFileSync("userlangs.json"))
 let userlangtrie = trie(JSON.parse(fs.readFileSync("userlangnames.json")))
 let namestocodes = JSON.parse(fs.readFileSync("namestocodes.json"))
 let codestonames = JSON.parse(fs.readFileSync("codestonames.json"))
+let engNames = JSON.parse(fs.readFileSync("langnames/eng.json"))
 
 String.prototype.toProperCase = function () {
     return this.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()})
@@ -107,4 +108,10 @@ app.get("/userlangs", function (request, response) {
   response.send(getLangs(request).map(function(x){
     return {text: codestonames[x].map((x) => x.toProperCase()), id: x}
   }))
+})
+
+app.get("/engname/:code", function (request, response) {
+  response.set('Access-Control-Allow-Origin', '*')
+  const code = request.params["code"]
+  response.send(engNames[code] || codestonames[code][0])
 })
