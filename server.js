@@ -33,7 +33,7 @@ function cldrToISO6933(cldr) {
 }
 
 let langpop = JSON.parse(fs.readFileSync("langpop.json"))
-let userlangs = JSON.parse(fs.readFileSync("userlangs.json"))
+// let userlangs = JSON.parse(fs.readFileSync("userlangs.json"))
 let userlangtrie = trie(JSON.parse(fs.readFileSync("userlangnames.json")))
 let namestocodes = JSON.parse(fs.readFileSync("namestocodes.json"))
 let codestonames = JSON.parse(fs.readFileSync("codestonames.json"))
